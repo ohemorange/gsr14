@@ -1,0 +1,9 @@
+
+<script src="libs/Metro-UI-CSS-master/js/jquery/jquery.min.js"></script>
+<div id=”header”></div><br />
+<body class="metro">
+... markup page ...
+</body>
+<script>
+$(“#header”).load(“head.html”);
+</script>

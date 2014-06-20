@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.views import generic
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -6,7 +7,10 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'hack.views.home', name='home'),
+    url(r'^$', 'hack.views.home', name='home'),
+    url(r'^new_event', 'hack.views.new_event', name='new_event'),
+    url(r'^(?P<event_id>[0-9]+)/update/$', 'hack.views.update', name='update'),
+ 	url(r'^(?P<event_id>[0-9]+)/$', 'hack.views.event_page', name='event_page'),
     # url(r'^hack/', include('hack.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
