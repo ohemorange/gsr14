@@ -7,9 +7,9 @@ You are updating event {{ event.id }}.
 {% csrf_token %}
 <label>Which resources did you use?</label><br />
 
-{% for resource in event.resources %} <!-- {% for resource in event.resources.all %}{% endfor %} -->
+{% for resource in event.resources.all %}
     <input type="checkbox" name="resource" id="resource{{ forloop.counter }}" value="{{ resource.id }}" />
-    <label for="resource{{ forloop.counter }}">{{ resource.url }}</label><br />
+    <label for="resource{{ forloop.counter }}">{{ resource.name }}</label><br />
 {% endfor %}
 <br />
 <label>How well did your event go?</label><br />
