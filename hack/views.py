@@ -1,4 +1,5 @@
 from django.shortcuts import (render, render_to_response, get_object_or_404)
+from models import *
 
 class res_1:
     id = 1
@@ -31,13 +32,13 @@ def new_event(request):
 
 # the event pages
 def event_page(request, event_id):
-    event = dummyEvent
+    event = get_object_or_404(Event, pk=event_id)
     context = {'event': event}
     return render(request, 'event.html', context)
 
 # the survey page
 def update(request, event_id):
-    event = dummyEvent
+    event = get_object_or_404(Event, pk=event_id)
     context = {'event': event}
     return render(request, 'update.html', context)
 
@@ -50,7 +51,7 @@ def save_update(request, event_id):
     selected_resources = resources
     # TODO: save into survey table
     # TODO: do ML stuff here
-    event = dummyEvent
+    event = get_object_or_404(Event, pk=event_id)
     context = {'event': event}
     return render(request, 'event.html', context)
     
