@@ -17,3 +17,10 @@ def event_page(request, event_id):
 def update(request, event_id):
     context = {'event_id': event_id}
     return render(request, 'update.html', context)
+
+def save_update(request, event_id):
+    e = get_object_or_404(Event, pk=event_id)
+    event_rating = request.POST['rating']
+    selected_resources = request.POST['resources']
+    
+    
