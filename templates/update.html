@@ -5,16 +5,17 @@ You are updating event {{ event.id }}.
 
 <form action="{% url 'save_update' event.id %}" method="post">
 {% csrf_token %}
-<label>Which resources did you use?</label>
+<label>Which resources did you use?</label><br />
+
 {% for resource in event.resources %} <!-- {% for resource in event.resources.all %}{% endfor %} -->
     <input type="checkbox" name="resource" id="resource{{ forloop.counter }}" value="{{ resource.id }}" />
     <label for="resource{{ forloop.counter }}">{{ resource.url }}</label><br />
 {% endfor %}
-
-<label>How well did your event go?</label>
+<br />
+<label>How well did your event go?</label><br />
 {% for number in "xxxxxxxxxx" %}
 	<input type="radio" name="rating" id="rating{{ forloop.counter }}" value="{{ forloop.counter }}" />
-	<label for="rating{{ forloop.counter }}">{{ forloop.counter }}</label><br />
+	<label for="rating{{ forloop.counter }}">{{ forloop.counter }} </label>
 {% endfor %}
 <input type="submit" value="Save" />
 </form>
