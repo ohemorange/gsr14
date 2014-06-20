@@ -1,0 +1,21 @@
+{% extends "head.html" %}
+
+{% block body %}
+You are updating event {{ event.id }}.
+
+<form action="{% url 'hack:save_update' event.id %}" method="post">
+{% csrf_token %}
+<label>Which resources did you use?</label>
+{% for resource in event.resources.all %}
+    <input type="checkbox" name="resource" id="resource{{ forloop.counter }}" value="{{ resource.id }}" />
+    <label for="resource{{ forloop.counter }}">{{ resource.url }}</label><br />
+{% endfor %}
+
+<label>How well did your event go?</label>
+{% for number in range(1,6) %}
+	<input type="radio" name="rating" id="rating{{ forloop.counter }}" value="{{ forloop.counter }}" />
+	<label for="rating{{ forloop.counter }}">{{ forloop.counter }}</label><br />
+{% endfor %}
+<input type="submit" value="Save" />
+</form>
+{% endblock %}
