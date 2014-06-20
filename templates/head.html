@@ -1,11 +1,25 @@
 <html>
 <head>
-  <link rel="stylesheet" href="static/Metro-UI-CSS-master/css/metro-bootstrap.css">
-  <script src="static/jquery-2.1.1.min.js"></script>
-  <script src="static/jquery-ui-1.10.4.custom.min.js"></script>
-  <script src="static/Metro-UI-CSS-master/min/metro.min.js"></script>
+  <link rel="stylesheet" href="/static/Metro-UI-CSS-master/css/metro-bootstrap.css">
+  <script src="/static/jquery-2.1.1.min.js"></script>
+  <script src="/static/jquery-ui-1.10.4.custom.min.js"></script>
+  <script src="/static/Metro-UI-CSS-master/min/metro.min.js"></script>
+  <style>
+  	.container {
+  		width:800px;
+  	}
+  </style>
 </head>
-<body>
-{% block body %}{% endblock %}
+<body class="metro">
+	<div class = "container">
+		<header class="margin20 nrm nlm">
+			<div class="clearfix">
+				<a class="place-left" href="/" title>
+					<h1>Our App Name</h1>
+				</a>
+			</div>
+		</header>
+		{% block body %}{% endblock %}
+	</div>
 </body>
 </html>
