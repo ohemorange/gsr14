@@ -64,6 +64,8 @@ def new_event(request):
 
 # save basic event info and load event page or update page
 def create_event(request):
+    if "cancel" in request.POST:
+        return home(request)
     event_name = request.POST["event_name"]
     event_description = request.POST["description"]
     event = Event(name=event_name, description=event_description)
