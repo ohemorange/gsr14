@@ -2,16 +2,16 @@
 
 {% block body %}
 <div class="tile-area no-padding clearfix">
-    <div class="tile-group no-margin no-padding clearfix" style="width: 100%">
-        <div class="tile double double-vertical bg-teal ol-transparent">
+    <div class="tile-group no-margin no-padding clearfix" style="cursor:default;width: 100%">
+        <div style="cursor:default;" class="tile double double-vertical bg-teal ol-transparent">
             <div class="tile-content">
-                <h1 class="text-right" style='position:absolute;bottom:0;right:0;' id="fix_size">{{ event.name }}</h1>
+                <h1 class="text-right" style='cursor:default;position:absolute;bottom:0;right:0;' id="fix_size">{{ event.name }}</h1>
             </div>
         </div>
 
-        <div class="tile quadro double-vertical ol-transparent bg-orange">
+        <div style="cursor:default;" class="tile quadro double-vertical ol-transparent bg-orange">
             <div class="tile-content">
-                <h2 style="position:absolute;bottom:0;">{{ event.description }}</h2>
+                <h2 style="cursor:default;position:absolute;bottom:0;">{{ event.description }}</h2>
             </div>
         </div>
     </div>
@@ -27,20 +27,21 @@
         </div>
     </a>
 
-    <div class="tile-group no-margin no-padding clearfix" style="width: 100%">
+    <div class="tile-group no-margin no-padding clearfix" style="cursor:default;width: 100%">
         <div class="tile bg-violet ol-transparent "  style="width:770px;">
-            <div class="tile-content" style="padding:40px;">
-                <div style="position:absolute;bottom:0;right:0;">
-                <h2 class="text-right fg-white">recommended plans</h2>
-                <p class="text-right fg-white" style="width:500px;">Each of these plans is an algorithmically proven combination of resources. Use any of the suggested sets to plan your event.</p>
+            <div class="tile-content" style="cursor:default;padding:40px;">
+                <div style="cursor:default;position:absolute;bottom:0;right:0;">
+                <h2 class="text-right fg-black">recommended plans</h2>
+                <p class="text-right fg-black" style="width:500px;">Each of these plans is an algorithmically proven combination of resources. Use any of the suggested sets to plan your event.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class ="tile-group no-margin no-padding clearfix" style="width:100%">
-        <div data-click="transform" class ='tile bg-amber double double-vertical ol-transparent'>
+        <div style="cursor:default;" class ='tile fg-black bg-amber double double-vertical ol-transparent'>
             <h2>best plan</h2>
+	    Click a resource on the right to view it.
         </div>
         {% for resource in event.recommendation_1.resources.all %}
         <a data-click="transform" href="{{ resource.link }}" class ="tile {{ colors1.0 }} double ol-transparent">
@@ -51,8 +52,9 @@
     </div>
 
     <div class ="tile-group no-margin no-padding clearfix" style="width:100%">
-        <div class ='tile bg-cyan double double-vertical ol-transparent'>
-            <h2>next-best plan</h2>
+        <div style="cursor:default;" class ='tile fg-black bg-cyan double double-vertical ol-transparent'>
+            <h2>next-best plan </h2>
+	    Click a resource on the right to view it.
         </div>
         {% for resource in event.recommendation_2.resources.all %}
         <a data-click="transform" href="{{ resource.link }}" class ="tile {{ colors2.0 }} double ol-transparent">
@@ -63,8 +65,9 @@
     </div>
 
     <div class ="tile-group no-margin no-padding clearfix" style="width:100%">
-        <div class ='tile bg-lightGreen double double-vertical ol-transparent'>
+        <div style="cursor:default;" class ='tile fg-black bg-lightGreen double double-vertical ol-transparent'>
             <h2>third-best plan</h2>
+	    Click a resource on the right to view it.
         </div>
         {% for resource in event.recommendation_3.resources.all %}
         <a  href="{{ resource.link }}" data-click="transform" class ="tile {{ colors3.0 }} double ol-transparent">
