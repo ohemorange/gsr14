@@ -1,5 +1,26 @@
 {% extends "head.html" %}
 
 {% block body %}
-This page creates a new event.
+<h2>You are creating a new event.</h2><br>
+
+<div class ="form" style="width:770px;">	
+<form action="{% url 'create_event' %}" method="post">
+{% csrf_token %}
+	<fieldset class="margin10">
+	    <legend>Basic Event Info</legend>
+	    <label>Event name</label>
+	    <div class="input-control text" data-role="input-control">
+	        <input type="text" name="event_name">
+	        <button class="btn-clear" tabindex="-1" type="button"></button>
+	    </div>
+	    <label>Event description</label>
+	    <div class="input-control textarea" data-role="input-control">
+	    	<textarea name="description"></textarea>
+	    </div>
+
+	    <input type="submit" value="Save" name="save">
+	    <input type="submit" value="Save and add resources" name="save">
+	</fieldset>
+</form>
+</div>
 {% endblock %}

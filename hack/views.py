@@ -22,6 +22,16 @@ class dummyEvent:
     recommendation_2 = res_2
     recommendation_3 = res_3
 
+colors1 = ["bg-teal", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+         "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
+colors2 = ["bg-yellow","bg-violet", "bg-teal", "bg-cyan",   "bg-lightGreen","bg-orange",
+     "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+      "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
+colors3 = [ "bg-violet", "bg-cyan", "bg-amber", "bg-lightGreen","bg-teal", "bg-orange",
+     "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+      "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
+
 # the homepage
 def home(request):
     return render(request, 'homepage.html', {})
@@ -30,18 +40,23 @@ def home(request):
 def new_event(request):
     return render(request, 'new_event.html', {})
 
+# save basic event info and load event page or update page
+def create_event(request):
+    event_name = request.POST["event_name"]
+    event_description = request.POST["description"]
+    event = Event(name=event_name, description=event_description)
+    event.save()
+    action = request.POST["save"]
+    if action == "Save":
+        context = {'event': event, 'colors1':colors1, 'colors2':colors2, 'colors3':colors3}
+        return render(request, 'event.html', context)
+    else:
+        context = {'event': event}
+        return render(request, 'update.html', context)
+
 # the event pages
 def event_page(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    colors1 = ["bg-teal", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
-         "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
-          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
-    colors2 = ["bg-yellow","bg-violet", "bg-teal", "bg-cyan",   "bg-lightGreen","bg-orange",
-         "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
-          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
-    colors3 = [ "bg-violet", "bg-cyan", "bg-amber", "bg-lightGreen","bg-teal", "bg-orange",
-         "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
-          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
     context = {'event': event, 'colors1':colors1, 'colors2':colors2, 'colors3':colors3}
     return render(request, 'event.html', context)
 
