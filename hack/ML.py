@@ -7,7 +7,7 @@ import numpy.linalg as linalg
 def updateRecommendations():
 	all_entries = Survey.objects.all()
 	count = Survey.objects.all().count()
-	resources_used = all_entries.resources_used ## **check??**
+	resources_used = Survey.objects.resources_used ## **check??**
 	resource_count = Resource.objects.distinct().count()
 	ratings = all_entries.rating ## **check??**
 
