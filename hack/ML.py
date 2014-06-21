@@ -30,6 +30,7 @@ def updateRecommendations(event_id):
 
     # find the best option
     ratings = sorted(ratings, key=lambda x: -x)
+    scores = []
     for i in range(len(ratings)):
         score = 0
         for j in range(len(all_resources)):
