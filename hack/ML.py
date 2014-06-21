@@ -1,4 +1,5 @@
 #the machine learning stuff here
+from models import *
 import numpy as np
 import numpy.linalg as linalg
 # **something else needed??**
@@ -36,9 +37,10 @@ def updateRecommendations():
 			new_ratings[i,1] = new_ratings[i,1] + (matrix_coefficients[j,1] * matrix_binaryFeatures[i,j]) 
 	
 
-#use all pcombination of subsets and display the most powerful
+#use all combination of subsets and display the most powerful
 
 
 
 ##backup heuristic approach
 #max1 = np.amax(ratings);
+
