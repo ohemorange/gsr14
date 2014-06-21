@@ -18,10 +18,10 @@
 
     <a href="update" class="tile-group no-margin no-padding clearfix" style="width: 100%">
         <div class="tile bg-yellow ol-transparent "  style="width:770px;">
-            <div class="tile-content">
+            <div  data-click="transform" class="tile-content">
                 <div style="position:absolute;bottom:0;">
                 <h2 >improve our recommendations</h2>
-                <p  style="width:420px;">Did you run this event? Tell us which resources you used and how it went.</p>
+                <p  style="width:420px;">Did you run this event? Click here to tell us which resources you used and how it went! Your feedback helps us choose the best events for future outreach programs.</p>
                 </div>
             </div>
         </div>
@@ -39,11 +39,11 @@
     </div>
 
     <div class ="tile-group no-margin no-padding clearfix" style="width:100%">
-        <div class ='tile bg-amber double double-vertical ol-transparent'>
+        <div data-click="transform" class ='tile bg-amber double double-vertical ol-transparent'>
             <h2>best plan</h2>
         </div>
         {% for resource in event.recommendation_1.resources.all %}
-        <a href="{{ resource.link }}" class ="tile {{ colors1.0 }} double ol-transparent">
+        <a data-click="transform" href="{{ resource.link }}" class ="tile {{ colors1.0 }} double ol-transparent">
             <h4>{{ resource.name }}</h4>
             <p>{{ resource.description }}</p>
         </a>
@@ -55,7 +55,7 @@
             <h2>next-best plan</h2>
         </div>
         {% for resource in event.recommendation_2.resources.all %}
-        <a href="{{ resource.link }}" class ="tile {{ colors2.0 }} double ol-transparent">
+        <a data-click="transform" href="{{ resource.link }}" class ="tile {{ colors2.0 }} double ol-transparent">
             <h4>{{ resource.name }}</h4>
             <p>{{ resource.description }}</p>
         </a>
@@ -67,7 +67,7 @@
             <h2>third-best plan</h2>
         </div>
         {% for resource in event.recommendation_3.resources.all %}
-        <a href="{{ resource.link }}" class ="tile {{ colors3.0 }} double ol-transparent">
+        <a  href="{{ resource.link }}" data-click="transform" class ="tile {{ colors3.0 }} double ol-transparent">
             <h4>{{ resource.name }}</h4>
             <p>{{ resource.description }}</p>
         </a>

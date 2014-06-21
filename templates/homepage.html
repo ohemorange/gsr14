@@ -10,13 +10,13 @@
    <div class="row">
    {% if events %}
     {% for event in events %}
-    <a href="/{{event.id}}" data-click="transform" style="padding:20px;" class="tile  text-center {% cycle 'bg-darkRed bg-hover-red' 'bg-darkGreen bg-hover-green' 'bg-darkBlue bg-hover-blue' 'bg-darkOrange bg-hover-orange' %}  fg-white fg-hover-white bd-orange" >
-     {{event.name}}
+    <a href="/{{event.id}}" data-click="transform" style="padding-top:50px;font-size:250%" class="tile double double-vertical  text-center {% cycle 'bg-Red bg-hover-darkRed' 'bg-green bg-hover-darkGreen' 'bg-cyan bg-hover-blue' 'bg-orange bg-hover-darkOrange' %}  fg-white fg-hover-white bd-orange" >
+    {{event.name}}
     </a>
     {% endfor %}
    {% endif %}
 
-    <a href="/new_event" data-click="transform" style="padding:20px;" class="tile text-center bg-black bg-hover-gray fg-white fg-hover-white bd-orange" >
+    <a href="/new_event" data-click="transform" style="padding-top:50px;font-size:250%" class="tile double double-vertical text-center bg-black bg-hover-gray fg-white fg-hover-white bd-orange" >
      Add event<h1><i class="icon-plus-2 fg-white"></i></h1>
     </a>
    </div>
