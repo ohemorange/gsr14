@@ -8,21 +8,14 @@
  <div class="container">
   <div class="grid fluid">
    <div class="row">
-    <a href="/hello.html" data-click="transform" style="padding:20px;" class="tile  text-center bg-darkRed bg-hover-red fg-white fg-hover-white bd-orange" >
-     GITHUB EVENT
+   {% if events %}
+    {% for event in events %}
+    <a href="/{{event}}.html" data-click="transform" style="padding:20px;" class="tile  text-center bg-darkRed bg-hover-red fg-white fg-hover-white bd-orange" >
+     {{event}}
     </a>
-    <a href="/hello.html" data-click="transform" style="padding:20px" class="tile  text-center primary bg-blue bg-hover-cyan fg-white fg-hover-white bd-orange" >
-     HACKATHON EVENT
-    </a>
-    <a href="/hello.html" data-click="transform" style="padding:20px" class="tile  text-center primary bg-darkBlue bg-hover-blue fg-white fg-hover-white bd-orange" >
-     JAVASCRIPT EVENT
-    </a>
-    <a href="/hello.html" data-click="transform" style="padding:20px" class="tile text-center bg-darkGreen bg-hover-green fg-white fg-hover-white bd-orange" >
-     C EVENT
-    </a>
-    <a href="/hello.html" data-click="transform" style="padding:20px;" class="tile text-center bg-darkOrange bg-hover-orange fg-white fg-hover-white bd-orange" >
-     INTRO TO CS EVENT
-    </a>
+    {% endfor %}
+   {% endif %}
+
     <a href="/hello.html" data-click="transform" style="padding:20px;" class="tile text-center bg-black bg-hover-gray fg-white fg-hover-white bd-orange" >
      OTHER EVENT
     </a>
