@@ -1,0 +1,7 @@
+how I got it working on ec2
+-----
+
+install everything.
+follow db setup steps.
+security group: allow tcp incoming from port 80, all IPs.
+run as $ sudo python manage.py 0.0.0.0:80
