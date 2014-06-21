@@ -43,10 +43,12 @@ def home(request):
     try:
         conn = sqlite3.connect('db.sqlite3')
         cur = conn.cursor()
-        cur.execute('SELECT Name FROM hack_event')
+        cur.execute('SELECT Name, id FROM hack_event')
         rows = cur.fetchall()
-        for row in rows:
-            events +=row
+        print rows
+        for (name, id) in rows:
+            d = {"name":name, "id":id}
+            events.append(d)
     except sqlite3.Error, e:
         print "Error %s:" % e.args[0]
         sys.exit(1)
