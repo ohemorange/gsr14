@@ -110,7 +110,7 @@ def save_update(request, event_id):
                 resource = get_object_or_404(Resource, pk=resouce_id)
                 survey.resources_used.add(resource)
         survey.save()
-    updateRecommendations()
+    updateRecommendations(event_id)
     return render(request, 'event.html', context)
     
 def create_resource(request, event_id):
