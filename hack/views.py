@@ -33,7 +33,7 @@ def new_event(request):
 # the event pages
 def event_page(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    colors1 = ["bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+    colors1 = ["bg-teal", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
           "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
     colors2 = ["bg-yellow","bg-violet", "bg-teal", "bg-cyan",   "bg-lightGreen","bg-orange",
