@@ -16,10 +16,10 @@ def updateRecommendations():
 	matrix_binaryFeatures = np.zeros(count,resource_count)	#matrix
 
 	#filling up known matrices
-	for i in range(1,count)
+	for i in range(1,count):
 		matrix_ratings[i,1]=ratings[i]
-		for j in range(1,resource_count)
-			if(j in resources_used)
+		for j in range(1,resource_count):
+			if j in resources_used:
 				matrix_binaryFeatures[i,j] = 1 
 
 
