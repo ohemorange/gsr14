@@ -2,6 +2,8 @@ from django.shortcuts import (render, render_to_response, get_object_or_404)
 from models import *
 import sqlite3,sys
 import os
+from ML import *
+
 class res_1:
     id = 1
     url = "a.com"
@@ -108,7 +110,7 @@ def save_update(request, event_id):
                 resource = get_object_or_404(Resource, pk=resouce_id)
                 survey.resources_used.add(resource)
         survey.save()
-    # TODO: do ML stuff here
+    updateRecommendations()
     return render(request, 'event.html', context)
     
 def create_resource(request, event_id):
