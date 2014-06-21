@@ -1,9 +1,21 @@
 {% extends "head.html" %}
 
 {% block body %}
-    <h1>{{ event.name }}</h1>
-    <h2>{{ event.description }}</h2>
-    <br><br>
+<div class="tile-area no-padding clearfix">
+    <div class="tile-group no-margin no-padding clearfix" style="width: 100%">
+        <div class="tile double double-vertical bg-teal ol-transparent">
+            <div class="tile-content">
+                <h1 class="text-right" style='position:absolute;bottom:0;right:0;'>{{ event.name }}</h1>
+            </div>
+        </div>
+
+        <div class="tile quadro double-vertical ol-transparent bg-orange">
+            <div class="tile-content">
+                <h2 style="position:absolute;bottom:0;">{{ event.description }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 You are looking at event {{ event.id }}.
