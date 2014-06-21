@@ -2,9 +2,9 @@
 
 {% block body %}
 
-<h2>You are updating <strong>{{ event.name }}</strong>.</h2><br>
+<h2 class="fg-white">You are updating <strong>{{ event.name }}</strong>.</h2><br>
 
-<div class ="form" style="width:770px;">	
+<div class ="form" style="width:770px;margin-left:10px;background-color:fcfcfc">	
 <form action="{% url 'save_update' event.id %}" method="post">
 {% csrf_token %}
 <label><h3>Which resources did you use?</h3></label>
