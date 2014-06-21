@@ -29,10 +29,8 @@ def updateRecommendations(event_id):
     matrix_coefficients = clf.coef_
 
     # find the best option
-    max_rating = max(ratings)
-    max_indices = [i for i, j in enumerate(ratings) if j == max_rating]
-    scores = []
-    for i in max_indices:
+    ratings = sorted(ratings, key=lambda x: -x)
+    for i in range(len(ratings)):
         score = 0
         for j in range(len(all_resources)):
             score += matrix_features[i][j] * matrix_coefficients[j]
