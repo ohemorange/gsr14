@@ -84,11 +84,11 @@
     {% endif %}
 
     {% if not event.recommendation_1 and not event.recommendation_2 and not event.recommendation_3 %}
-    <div class = "tile-group three no-padding" style="margin-right:20px">
-        <div style="cursor:default;" class ='tile triple fg-white bg-violet ol-transparent'>
-            <p class="fg-white">:( There are no recommendations yet. Add resources and run the event to get suggestions.</p>
+    <a href = "update" class = "tile-group three no-padding" style="margin-right:20px">
+        <div class ='tile triple fg-white bg-violet ol-transparent'>
+            <p class="fg-white">:( There are no recommendations yet. <strong>Click here</strong> to add resources so we can give you some suggestions.</p>
         </div>
-    </div>
+    </a>
     {% endif %}
 </div>
 
