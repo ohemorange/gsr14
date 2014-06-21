@@ -18,14 +18,9 @@
   </style>
   <link href="/static/Metro-UI-CSS-master/css/iconFont.css" rel="stylesheet">
 </head>
-<body class="metro">
-	<div class = "container tile-area tile-area-dark">
-		<h1 class="tile-area-title fg-white"><a href="/" class="fg-white">Our App Name</a></h1>
-		<div class="user-id bg-hover-transparent">
-            <p class="fg-white">
-            	Some information about our app
-            </p>
-        </div>
+<body class="metro" style="background-color:#1d1d1d;width:100%">
+	<div class = "container" style="width:100%;position: relative;padding: 120px 80px 0 80px;">
+		
 		<!--
 		<header class="margin20 nrm nlm">
 			<div class="clearfix">
@@ -36,6 +31,12 @@
 		</header>
 		-->
 		<div class="main-content">
+			<h1 class="tile-area-title fg-white" style="position:absolute;top:20px;left:80px"><a href="/" class="fg-white">Our App Name</a></h1>
+		<div class="user-id bg-hover-transparent" style="position:absolute;top:40px;right:40px;display:inline-block;padding:8px;">
+            <p class="fg-white">
+            	Some information about our app
+            </p>
+        </div>
 			{% block body %}{% endblock %}
 		</div>
 	</div>
