@@ -1,6 +1,7 @@
 from django.shortcuts import (render, render_to_response, get_object_or_404)
 from models import *
-
+import sqlite3,sys
+import os
 class res_1:
     id = 1
     url = "a.com"
@@ -34,7 +35,26 @@ colors3 = [ "bg-violet", "bg-cyan", "bg-amber", "bg-lightGreen","bg-teal", "bg-o
 
 # the homepage
 def home(request):
-    return render(request, 'homepage.html', {})
+    conn = None
+    files = [f for f in os.listdir('.') if os.path.isfile(f)]
+    events = []
+    for f in files:
+        print f
+    try:
+        conn = sqlite3.connect('db.sqlite3')
+        cur = conn.cursor()
+        cur.execute('SELECT Name FROM hack_event')
+        rows = cur.fetchall()
+        for row in rows:
+            events +=row
+    except sqlite3.Error, e:
+        print "Error %s:" % e.args[0]
+        sys.exit(1)
+    finally:
+        conn.close() 	
+    print events
+    context = {'events': events}
+    return render(request, 'homepage.html', context)
 
 # add basic event information for a new event
 def new_event(request):
