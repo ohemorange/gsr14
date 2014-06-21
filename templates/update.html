@@ -4,10 +4,10 @@
 
 <h2 class="fg-white">You are updating <strong>{{ event.name }}</strong>.</h2><br>
 
-<div class ="form" style="width:770px;margin-left:10px;background-color:fcfcfc">	
+<div class ="form bg-teal fg-white" style="width:770px;margin-left:10px;background-color:fcfcfc">	
 <form action="{% url 'save_update' event.id %}" method="post">
 {% csrf_token %}
-<label><h3>Which resources did you use?</h3></label>
+<label><h3 class="fg-white">Which resources did you use?</h3></label>
 <div>
 {% for resource in event.resources.all %}
 	<div class = "input-control checkbox margin10">
@@ -24,7 +24,7 @@
 </div>
 
 <br />
-<label><h3>How well did your event go?</h3></label>
+<label><h3 class="fg-white">How well did your event go?</h3></label>
 <div>
 	<div class="input-control radio margin10">
 	    <label>

@@ -3,11 +3,11 @@
 {% block body %}
 <h2 class="fg-white">You are creating a new event.</h2><br>
 
-<div class ="form" style="width:770px;margin-left:10px;background-color:fcfcfc;">	
+<div class ="form bg-violet" style="width:770px;margin-left:10px;background-color:fcfcfc;">	
 <form action="{% url 'create_event' %}" method="post">
 {% csrf_token %}
-	<fieldset class="margin10">
-	    <legend>Basic Event Info</legend>
+	<fieldset class="margin10 fg-white">
+	    <legend class="fg-white">Basic Event Info</legend>
 	    <label>Event name</label>
 	    <div class="input-control text" data-role="input-control">
 	        <input type="text" name="event_name">
