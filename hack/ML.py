@@ -14,10 +14,11 @@ def updateRecommendations():
 	matrix_ratings = np.zeros((count,1))   #column vector
 	matrix_coefficients = np.zeros(resource_count,1)   #column vector
 	matrix_binaryFeatures = np.zeros(count,resource_count)	#matrix
-
+	list_ratings = [];
 	#filling up known matrices
 	for i in range(1,count):
 		matrix_ratings[i,1]=ratings[i]
+		list_ratings.append(rating[i])
 		for j in range(1,resource_count):
 			if j in resources_used:
 				matrix_binaryFeatures[i,j] = 1 
@@ -25,3 +26,19 @@ def updateRecommendations():
 
 	#computing unknown matrix through linear algebra
 	matrix_coefficients = linalg.solve(matrix_binaryFeatures,matrix_ratings)
+
+
+
+	new_ratings = np.zeros((count,1))
+	#using coefficients to compute new scores and select top 3
+	for i in range(1,count):
+		for j in range(1,resource_count):
+			new_ratings[i,1] = new_ratings[i,1] + (matrix_coefficients[j,1] * matrix_binaryFeatures[i,j]) 
+	
+
+#use all pcombination of subsets and display the most powerful
+
+
+
+##backup heuristic approach
+#max1 = np.amax(ratings);
