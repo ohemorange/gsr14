@@ -54,7 +54,7 @@
         <div class ='tile bg-cyan double double-vertical ol-transparent'>
             <h2>next-best plan</h2>
         </div>
-        {% for resource in event.recommendation_1.resources.all %}
+        {% for resource in event.recommendation_2.resources.all %}
         <a href="{{ resource.link }}" class ="tile {{ colors2.0 }} double ol-transparent">
             <h4>{{ resource.name }}</h4>
             <p>{{ resource.description }}</p>
@@ -66,7 +66,7 @@
         <div class ='tile bg-lightGreen double double-vertical ol-transparent'>
             <h2>third-best plan</h2>
         </div>
-        {% for resource in event.recommendation_1.resources.all %}
+        {% for resource in event.recommendation_3.resources.all %}
         <a href="{{ resource.link }}" class ="tile {{ colors3.0 }} double ol-transparent">
             <h4>{{ resource.name }}</h4>
             <p>{{ resource.description }}</p>
