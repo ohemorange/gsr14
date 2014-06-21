@@ -1,3 +1,4 @@
+sudo apt-get install sqlite3 libsqlite3-dev
 python manage.py syncdb
 python manage.py sql hack
 python manage.py runserver
