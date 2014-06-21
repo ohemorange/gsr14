@@ -23,7 +23,8 @@ def updateRecommendations(event_id):
         else: 
             matrix_features = np.array(new_row).reshape((1, len(new_row)))
     matrix_features = matrix_features + 1
-    #computing unknown matrix through linear algebra
+    
+#computing unknown matrix through linear algebra
     clf = linear_model.LinearRegression()
     clf.fit(matrix_features, matrix_ratings)
     matrix_coefficients = clf.coef_
@@ -45,6 +46,7 @@ def updateRecommendations(event_id):
         recommendation_1 = Recommendation(num_volunteers=0)
         recommendation_1.save()
         recommendation_1.resources = resources_used[index_1]
+	print resources_used[index_1]
         recommendation_1.save()
         event.recommendation_1 = recommendation_1
         event.save()

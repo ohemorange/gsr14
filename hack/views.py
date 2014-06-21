@@ -93,6 +93,7 @@ def update(request, event_id):
     return render(request, 'update.html', context)
 
 def save_update(request, event_id):
+    print request.POST
     event = get_object_or_404(Event, pk=event_id)
     context = {'event': event}
     cancel = request.POST['cancel']
@@ -103,13 +104,13 @@ def save_update(request, event_id):
         event_rating = int(event_rating)+1 # should be 1-10 but this is untested
         survey = Survey(rating=event_rating, event_id=event_id)
         survey.save()
-        for k in request.POST.keys():
-            if "resource" in k:
-                resouce_id = request.POST[k]
-                # get resource by id
-                resource = get_object_or_404(Resource, pk=resouce_id)
-                survey.resources_used.add(resource)
-        survey.save()
+        resources = request.POST.getlist("resource")
+        print resources
+        for resource_id in resources:
+            print resource_id
+            resource = get_object_or_404(Resource, pk=resource_id)
+            survey.resources_used.add(resource)
+            survey.save()
     updateRecommendations(event_id)
     event = get_object_or_404(Event, pk=event_id)
     context = {'event': event, 'colors1':colors1, 'colors2':colors2, 'colors3':colors3}
