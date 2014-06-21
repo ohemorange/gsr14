@@ -1,9 +1,9 @@
 {% extends "head.html" %}
 
 {% block body %}
-<h2>You are creating a new event.</h2><br>
+<h2 class="fg-white">You are creating a new event.</h2><br>
 
-<div class ="form" style="width:770px;">	
+<div class ="form" style="width:770px;margin-left:10px;background-color:fcfcfc;">	
 <form action="{% url 'create_event' %}" method="post">
 {% csrf_token %}
 	<fieldset class="margin10">
