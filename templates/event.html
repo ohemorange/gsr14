@@ -38,6 +38,7 @@
 </div>
 
 <div class = "tile-area no-padding">
+    {% if event.recommendation_1 %}
     <div class = "tile-group three no-padding" style="margin-right:20px">
         <div style="cursor:default;" class ='tile double fg-white bg-amber ol-transparent'>
             <h2 class="fg-white">best plan</h2>
@@ -50,7 +51,9 @@
         </a>
         {% endfor %}
     </div>
+    {% endif %}
 
+    {% if event.recommendation_2 %}
     <div class = "tile-group three no-padding" style="margin-right:20px">
         <div style="cursor:default;" class ='tile double fg-white bg-cyan ol-transparent'>
             <h2 class="fg-white">next-best plan</h2>
@@ -63,7 +66,9 @@
         </a>
         {% endfor %}
     </div>
+    {% endif %}
 
+    {% if event.recommendation_3 %}
     <div class = "tile-group three no-padding" style="margin-right:20px">
         <div style="cursor:default;" class ='tile double fg-white bg-lightGreen ol-transparent'>
             <h2 class="fg-white">third-best plan</h2>
@@ -76,6 +81,15 @@
         </a>
         {% endfor %}
     </div>
+    {% endif %}
+
+    {% if not event.recommendation_1 and not event.recommendation_2 and not event.recommendation_3 %}
+    <div class = "tile-group three no-padding" style="margin-right:20px">
+        <div style="cursor:default;" class ='tile triple fg-white bg-violet ol-transparent'>
+            <p class="fg-white">:( There are no recommendations yet. Add resources and run the event to get suggestions.</p>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock %}
