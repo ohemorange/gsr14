@@ -28,7 +28,7 @@ class dummyEvent:
 colors1 = ["bg-teal", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
           "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
-colors2 = ["bg-yellow","bg-violet", "bg-teal", "bg-cyan",   "bg-lightGreen","bg-orange",
+colors2 = ["bg-orange","bg-violet", "bg-teal", "bg-cyan",   "bg-lightGreen","bg-orange",
      "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
       "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
 colors3 = [ "bg-violet", "bg-cyan", "bg-amber", "bg-lightGreen","bg-teal", "bg-orange",

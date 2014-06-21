@@ -2,81 +2,80 @@
 
 {% block body %}
 <div class="tile-area no-padding clearfix">
-    <div class="tile-group no-margin no-padding clearfix" style="cursor:default;width: 100%">
+    <div class="tile-group no-padding six" style="cursor:default;">
         <div style="cursor:default;" class="tile double double-vertical bg-teal ol-transparent">
             <div class="tile-content">
-                <h1 class="text-right" style='cursor:default;position:absolute;bottom:0;right:0;' id="fix_size">{{ event.name }}</h1>
+                <h1 class="text-right fg-white" style='cursor:default;position:absolute;bottom:0;right:0;' id="fix_size">{{ event.name }}</h1>
             </div>
         </div>
 
         <div style="cursor:default;" class="tile quadro double-vertical ol-transparent bg-orange">
             <div class="tile-content">
-                <h2 style="cursor:default;position:absolute;bottom:0;">{{ event.description }}</h2>
+                <h2 class="fg-white" style="cursor:default;position:absolute;bottom:0;">{{ event.description }}</h2>
             </div>
         </div>
     </div>
 
-    <a href="update" class="tile-group no-margin no-padding clearfix" style="width: 100%">
-        <div class="tile bg-yellow ol-transparent "  style="width:770px;">
+    <a href="update" class="tile-group no-padding clearfix double">
+        <div class="tile bg-yellow ol-transparent triple double-vertical ">
             <div  data-click="transform" class="tile-content">
                 <div style="position:absolute;bottom:0;">
-                <h2 >improve our recommendations</h2>
-                <p  style="width:420px;">Did you run this event? Click here to tell us which resources you used and how it went! Your feedback helps us choose the best events for future outreach programs.</p>
+                <h2 class="fg-white">improve our recommendations</h2>
+                <p class="fg-white">Did you run this event? Click here to tell us which resources you used and how it went. Your feedback helps us choose the best events for future outreach programs.</p>
                 </div>
             </div>
         </div>
     </a>
+</div>
 
-    <div class="tile-group no-margin no-padding clearfix" style="cursor:default;width: 100%">
-        <div class="tile bg-violet ol-transparent "  style="width:770px;">
-            <div class="tile-content" style="cursor:default;padding:40px;">
-                <div style="cursor:default;position:absolute;bottom:0;right:0;">
-                <h2 class="text-right fg-black">recommended plans</h2>
-                <p class="text-right fg-black" style="width:500px;">Each of these plans is an algorithmically proven combination of resources. Use any of the suggested sets to plan your event.</p>
-                </div>
-            </div>
+<div class = "tile-area no-padding">
+    <div class = "tile-group seven" style="padding-top:80px;margin-right:20px">
+        <div class = "tile-group-title fg-white">
+            Recommended plans
+            <div style="font-size:10pt;">Each of these plans is an algorithmically proven combination of resources. Use any of the suggested sets to plan your event.</div>
         </div>
     </div>
+</div>
 
-    <div class ="tile-group no-margin no-padding clearfix" style="width:100%">
-        <div style="cursor:default;" class ='tile fg-black bg-amber double double-vertical ol-transparent'>
-            <h2>best plan</h2>
-	    Click a resource on the right to view it.
+<div class = "tile-area no-padding">
+    <div class = "tile-group three no-padding" style="margin-right:20px">
+        <div style="cursor:default;" class ='tile double fg-white bg-amber ol-transparent'>
+            <h2 class="fg-white">best plan</h2>
         </div>
+
         {% for resource in event.recommendation_1.resources.all %}
-        <a data-click="transform" href="{{ resource.link }}" class ="tile {{ colors1.0 }} double ol-transparent">
-            <h4>{{ resource.name }}</h4>
-            <p>{{ resource.description }}</p>
+        <a data-click="transform" href="{{ resource.link }}" class ="tile fg-white {{ colors1.0 }} ol-transparent">
+            <h4 class="fg-white">{{ resource.name }}</h4>
+            <p class="fg-white">{{ resource.description }}</p>
         </a>
         {% endfor %}
     </div>
 
-    <div class ="tile-group no-margin no-padding clearfix" style="width:100%">
-        <div style="cursor:default;" class ='tile fg-black bg-cyan double double-vertical ol-transparent'>
-            <h2>next-best plan </h2>
-	    Click a resource on the right to view it.
+    <div class = "tile-group three no-padding" style="margin-right:20px">
+        <div style="cursor:default;" class ='tile double fg-white bg-cyan ol-transparent'>
+            <h2 class="fg-white">next-best plan</h2>
         </div>
+
         {% for resource in event.recommendation_2.resources.all %}
-        <a data-click="transform" href="{{ resource.link }}" class ="tile {{ colors2.0 }} double ol-transparent">
-            <h4>{{ resource.name }}</h4>
-            <p>{{ resource.description }}</p>
+        <a data-click="transform" href="{{ resource.link }}" class ="tile fg-white {{ colors2.0 }} ol-transparent">
+            <h4 class="fg-white">{{ resource.name }}</h4>
+            <p class="fg-white">{{ resource.description }}</p>
         </a>
         {% endfor %}
     </div>
 
-    <div class ="tile-group no-margin no-padding clearfix" style="width:100%">
-        <div style="cursor:default;" class ='tile fg-black bg-lightGreen double double-vertical ol-transparent'>
-            <h2>third-best plan</h2>
-	    Click a resource on the right to view it.
+    <div class = "tile-group three no-padding" style="margin-right:20px">
+        <div style="cursor:default;" class ='tile double fg-white bg-lightGreen ol-transparent'>
+            <h2 class="fg-white">third-best plan</h2>
         </div>
+
         {% for resource in event.recommendation_3.resources.all %}
-        <a  href="{{ resource.link }}" data-click="transform" class ="tile {{ colors3.0 }} double ol-transparent">
-            <h4>{{ resource.name }}</h4>
-            <p>{{ resource.description }}</p>
+        <a data-click="transform" href="{{ resource.link }}" class ="tile fg-white {{ colors3.0 }} ol-transparent">
+            <h4 class="fg-white ">{{ resource.name }}</h4>
+            <p class="fg-white">{{ resource.description }}</p>
         </a>
         {% endfor %}
     </div>
-
 </div>
 
 {% endblock %}
