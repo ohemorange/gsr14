@@ -91,23 +91,24 @@ def update(request, event_id):
     return render(request, 'update.html', context)
 
 def save_update(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    context = {'event': event}
     cancel = request.POST['cancel']
     if cancel == "Cancel":
-        event = get_object_or_404(Event, pk=event_id)
-        context = {'event': event}
         return render(request, 'event.html', context)
     event_rating = request.POST['rating']
     if event_rating != "not_run":
         event_rating = int(event_rating)+1 # should be 1-10 but this is untested
-    resources = []
-    for k in request.POST.keys():
-        if "resource" in k:
-            resources.append(request.POST[k])
-    selected_resources = resources
-    # TODO: save into survey table
+        survey = Survey(rating=event_rating)
+        survey.save()
+        for k in request.POST.keys():
+            if "resource" in k:
+                resouce_id = request.POST[k]
+                # get resource by id
+                resource = get_object_or_404(Resource, pk=resouce_id)
+                survey.resources_used.add(resource)
+        survey.save()
     # TODO: do ML stuff here
-    event = get_object_or_404(Event, pk=event_id)
-    context = {'event': event}
     return render(request, 'event.html', context)
     
 def create_resource(request, event_id):
