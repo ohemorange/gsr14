@@ -1,12 +1,13 @@
 {% extends "head.html" %}
 
 {% block body %}
-You are updating {{ event.name }}.<br>
+<h2>You are updating <strong>{{ event.name }}</strong>.</h2><br>
 
+<div class ="form" style="width:770px;">	
 <form action="{% url 'save_update' event.id %}" method="post">
 {% csrf_token %}
-<label>Which resources did you use?</label>
-
+<label><h3>Which resources did you use?</h3></label>
+<div>
 {% for resource in event.resources.all %}
 	<div class = "input-control checkbox margin10">
 		<label>
@@ -16,11 +17,18 @@ You are updating {{ event.name }}.<br>
 		</label>
 	</div>
 {% endfor %}
+</div>
 
 <br />
-<label>How well did your event go?</label>
+<label><h3>How well did your event go?</h3></label>
+<div>
+	<div class="input-control radio margin10">
+	    <label>
+	        terribly
+	    </label>
+	</div>
 {% for number in "xxxxxxxxxx" %}
-	<div class="input-control radio">
+	<div class="input-control radio margin5">
 	    <label>
 	        <input type="radio" name="rating" id="rating{{ forloop.counter }}" value="{{ forloop.counter }}" />
 	        <span class="check"></span>
@@ -28,7 +36,17 @@ You are updating {{ event.name }}.<br>
 	    </label>
 	</div>
 {% endfor %}
+	<div class="input-control radio margin10">
+	    <label>
+	        fantastic!
+	    </label>
+	</div>
+</div>
+
 <br>
-<input type="submit" value="Save" />
+<div class="margin10">
+<input type="submit" value="Save"/>
+</div>
 </form>
+</div>
 {% endblock %}
