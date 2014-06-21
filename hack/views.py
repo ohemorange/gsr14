@@ -101,7 +101,7 @@ def save_update(request, event_id):
     event_rating = request.POST['rating']
     if event_rating != "not_run":
         event_rating = int(event_rating)+1 # should be 1-10 but this is untested
-        survey = Survey(rating=event_rating)
+        survey = Survey(rating=event_rating, event_id=event_id)
         survey.save()
         for k in request.POST.keys():
             if "resource" in k:
@@ -111,6 +111,8 @@ def save_update(request, event_id):
                 survey.resources_used.add(resource)
         survey.save()
     updateRecommendations(event_id)
+    event = get_object_or_404(Event, pk=event_id)
+    context = {'event': event, 'colors1':colors1, 'colors2':colors2, 'colors3':colors3}
     return render(request, 'event.html', context)
     
 def create_resource(request, event_id):
