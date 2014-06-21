@@ -10,7 +10,7 @@
    <div class="row">
    {% if events %}
     {% for event in events %}
-    <a href="/{{event.id}}" data-click="transform" style="padding:20px;" class="tile  text-center bg-darkRed bg-hover-red fg-white fg-hover-white bd-orange" >
+    <a href="/{{event.id}}" data-click="transform" style="padding:20px;" class="tile  text-center {% cycle 'bg-darkRed bg-hover-red' 'bg-darkGreen bg-hover-green' 'bg-darkBlue bg-hover-blue' 'bg-darkOrange bg-hover-orange' %}  fg-white fg-hover-white bd-orange" >
      {{event.name}}
     </a>
     {% endfor %}
