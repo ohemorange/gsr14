@@ -7,9 +7,9 @@ import numpy.linalg as linalg
 def updateRecommendations():
 	all_entries = Survey.objects.all()
 	count = Survey.objects.all().count()
-	resources_used = Survey.objects.resources_used ## **check??**
-	resource_count = Resource.objects.distinct().count()
-	ratings = all_entries.rating ## **check??**
+	resources_used = Survey.objects.values('resources_used') ## **check??**
+	resource_count = Resource.objects.values('name').distinct().count()
+	ratings = Survey.objects.values('rating') ## **check??**
 
 	#matrices needed for linear algebra
 	matrix_ratings = np.zeros((count,1))   #column vector
