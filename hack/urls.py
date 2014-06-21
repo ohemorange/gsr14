@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^(?P<event_id>[0-9]+)/update/$', 'hack.views.update', name='update'),
  	url(r'^(?P<event_id>[0-9]+)/$', 'hack.views.event_page', name='event_page'),
  	url(r'^(?P<event_id>[0-9]+)/save_update$', 'hack.views.save_update', name='save_update'),
+ 	url(r'^(?P<event_id>[0-9]+)/create_resource$', 'hack.views.create_resource', name='create_resource'),
     # url(r'^hack/', include('hack.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

@@ -87,7 +87,14 @@ def update(request, event_id):
     return render(request, 'update.html', context)
 
 def save_update(request, event_id):
-    event_rating = int(request.POST['rating'])+1 # should be 1-10 but this is untested
+    cancel = request.POST['cancel']
+    if cancel == "Cancel":
+        event = get_object_or_404(Event, pk=event_id)
+        context = {'event': event}
+        return render(request, 'event.html', context)
+    event_rating = request.POST['rating']
+    if event_rating != "not_run":
+        event_rating = int(event_rating)+1 # should be 1-10 but this is untested
     resources = []
     for k in request.POST.keys():
         if "resource" in k:
@@ -98,4 +105,16 @@ def save_update(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     context = {'event': event}
     return render(request, 'event.html', context)
+    
+def create_resource(request, event_id):
+    resource_name = request.POST["resource_name"]
+    resource_link = request.POST["resource_link"]
+    resource_description = request.POST["resource_description"]
+    resource = Resource(name=resource_name, description=resource_description, link=resource_link)
+    resource.save()
+    event = get_object_or_404(Event, pk=event_id)
+    event.resources.add(resource)
+    event.save()
+    context = {'event': event}
+    return render(request, 'update.html', context)
     

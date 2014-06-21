@@ -1,6 +1,7 @@
 {% extends "head.html" %}
 
 {% block body %}
+
 <h2>You are updating <strong>{{ event.name }}</strong>.</h2><br>
 
 <div class ="form" style="width:770px;">	
@@ -17,6 +18,9 @@
 		</label>
 	</div>
 {% endfor %}
+<div class="margin10">
+	<div class="button" id="createFlatWindow">+ Add resource</button>
+</div>
 </div>
 
 <br />
@@ -41,12 +45,55 @@
 	        fantastic!
 	    </label>
 	</div>
+	<div class="input-control radio margin5">
+	    <label>
+	        <input type="radio" name="rating" id="ratingnone" value="not_run" checked="true"/>
+	        <span class="check"></span>
+	        I have not yet run this event.
+	    </label>
+	</div>
 </div>
 
 <br>
 <div class="margin10">
-<input type="submit" value="Save"/>
+	<input type="submit" class="primary button" name="cancel" value="Save"/> <input type="submit" class="button" name="cancel" value="Cancel"/>
 </div>
 </form>
 </div>
+
+
+<script>
+	$("#createFlatWindow").on('click', function(){
+        $.Dialog({
+            overlay: true,
+            shadow: true,
+            flat: true,
+            draggable: true,
+            title: 'Add resource',
+            content: '',
+            padding: 10,
+            onShow: function(_dialog){
+                var content = '<form class="user-input" action="{% url "create_resource" event.id %}" method="post">' +
+                		"{% csrf_token %}" +
+                        '<label>Resource name</label>' +
+                        '<div class="input-control text"><input type="text" name="resource_name"><button class="btn-clear"></button></div>' +
+                        '<label>Link to resource</label>' +
+                        '<div class="input-control text"><input type="text" name="resource_link"><button class="btn-clear"></button></div>' +
+                        '<label>Resource description</label>'+
+                        '<div class="input-control text" style="width:400px;"><input type="text" name="resource_description"><button class="btn-clear"></button></div>' +
+                        '<div class="form-actions">' +
+                        '<button class="button primary" id="create_resource">Create</button>&nbsp;'+
+                        '<button class="button" type="button">Cancel</button> '+
+                        '</div>'+
+                        '</form>';
+
+                $.Dialog.title("Add resource");
+                $.Dialog.content(content);
+            }
+        });
+    });
+	$("#create_resource").on('click', function(){
+		$.Dialog.close();
+	});
+</script>
 {% endblock %}
