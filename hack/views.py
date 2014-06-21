@@ -33,7 +33,16 @@ def new_event(request):
 # the event pages
 def event_page(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    context = {'event': event}
+    colors1 = ["bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+         "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
+    colors2 = ["bg-amber","bg-violet", "bg-teal", "bg-cyan",   "bg-lightGreen","bg-orange",
+         "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
+    colors3 = [ "bg-violet", "bg-cyan", "bg-amber", "bg-lightGreen","bg-teal", "bg-orange",
+         "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange",
+          "bg-cyan", "bg-amber", "bg-lightGreen", "bg-violet", "bg-teal", "bg-orange"]
+    context = {'event': event, 'colors1':colors1, 'colors2':colors2, 'colors3':colors3}
     return render(request, 'event.html', context)
 
 # the survey page
